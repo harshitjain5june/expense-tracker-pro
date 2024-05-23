@@ -1,5 +1,6 @@
 <script setup lang="ts">
-defineProps<{ income: number, expense: number }>();
+import { useTransactionStore } from '@/stores/useTransactionStore';
+const store = useTransactionStore()
 </script>
 
 Script
@@ -7,11 +8,11 @@ Script
     <div class="inc-exp-container">
         <div>
             <h4>Income</h4>
-            <p id="money-plus" class="money plus">+Rs{{ income }}</p>
+            <p id="money-plus" class="money plus">+Rs{{ store.income }}</p>
         </div>
         <div>
             <h4>Expense</h4>
-            <p id="money-minus" class="money minus">-Rs{{ -(expense) }}</p>
+            <p id="money-minus" class="money minus">-Rs{{ -(store.expense) }}</p>
         </div>
     </div>
 </template>
